@@ -36,7 +36,7 @@ app.get("/now",(req, res, next) => {
 );
 
 app.get('/:word/echo', (req, res) => {
-  req.params.word
+  const { word } = req.params;
   res.json({echo: word})
 })
 
