@@ -3,11 +3,11 @@ let app = express();
 require('dotenv').config()
 console.log("Hello World")
 
-app.use(function middleware(req, res, next) {
-  // Do something
-  // Call the next function in line:
-  next();
-});
+app.use( function middleware(req, res, next) {
+	var something = req.method + " " + req.path + " - " + req.ip;
+	console.log(something);
+	next();
+})
 
 
 app.use("/public", express.static(__dirname + "/public"));
@@ -24,7 +24,7 @@ app.get('/json',(req,res)=>{
       }
 })
 
-//aa
+
 
 
 
